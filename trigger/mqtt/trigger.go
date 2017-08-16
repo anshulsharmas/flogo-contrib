@@ -79,6 +79,10 @@ func (t *MqttTrigger) Start() error {
 			log.Errorf("Topic %s not found", t.topicToActionURI[topic])
 		}
 	})
+	
+	//set tls config
+	tlsConfig := NewTLSConfig(thingName)
+	opts.SetTLSConfig(tlsConfig)
 
 	client := mqtt.NewClient(opts)
 	t.client = client
@@ -178,6 +182,37 @@ func (t *MqttTrigger) constructStartRequest(message string) *StartRequest {
 	data["message"] = message
 	req.Data = data
 	return req
+}
+
+// NewTLSConfig creates a TLS configuration for the specified 'thing'
+func NewTLSConfig(thingName string) *tls.Config {
+	// Import root CA
+	certpool := x509.NewCertPool()
+	pemCerts, err := ioutil.ReadFile("things/root-CA.pem.crt")
+	if err == nil {
+		certpool.AppendCertsFromPEM(pemCerts)
+	}
+
+	thingDir := "things/" + thingName + "/"
+
+	// Import client certificate/key pair for the specified 'thing'
+	cert, err := tls.LoadX509KeyPair(thingDir+"device.pem.crt", thingDir+"device.pem.key")
+	if err != nil {
+		panic(err)
+	}
+
+	cert.Leaf, err = x509.ParseCertificate(cert.Certificate[0])
+	if err != nil {
+		panic(err)
+	}
+
+	return &tls.Config{
+		RootCAs:            certpool,
+		ClientAuth:         tls.NoClientCert,
+		ClientCAs:          nil,
+		InsecureSkipVerify: true,
+		Certificates:       []tls.Certificate{cert},
+	}
 }
 
 // StartRequest describes a request for starting a ProcessInstance
