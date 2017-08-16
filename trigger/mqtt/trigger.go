@@ -196,7 +196,7 @@ func NewTLSConfig(thingName string) *tls.Config {
 	thingDir := "things/" + thingName + "/"
 
 	// Import client certificate/key pair for the specified 'thing'
-	cert, err := tls.LoadX509KeyPair(thingDir+"device.pem.crt", thingDir+"device.pem.key")
+	cert, err := tls.LoadX509KeyPair("device.pem.crt", "device.pem.key")
 	if err != nil {
 		panic(err)
 	}
