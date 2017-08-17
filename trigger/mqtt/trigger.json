@@ -1,12 +1,12 @@
 {
-  "name": "tibco-mqtt",
+  "name": "tibco-mqtt-aws",
   "type": "flogo:trigger",
-  "ref": "github.com/TIBCOSoftware/flogo-contrib/trigger/mqtt",
-  "version": "0.0.1",
+  "ref": "github.com/anshulsharmas/flogo-contrib/trigger/mqtt",
+  "version": "0.0.2",
   "title": "Receive MQTT Message",
-  "author": "Michael Register <mregiste@tibco.com>",
-  "description": "Simple MQTT Trigger",
-  "homepage": "https://github.com/TIBCOSoftware/flogo-contrib/tree/master/trigger/mqtt",
+  "author": "Anshul Sharma <ansharma@tibco.com>",
+  "description": "Simple MQTT Trigger with TLS suppport",
+  "homepage": "https://github.com/anshulsharmas/flogo-contrib/edit/master/trigger/mqtt",
   "settings":[
     {
       "name": "broker",
