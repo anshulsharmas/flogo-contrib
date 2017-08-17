@@ -4,6 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"strconv"
+	"crypto/tls"
+	"crypto/x509"
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
 
 	"github.com/eclipse/paho.mqtt.golang"
 	"github.com/TIBCOSoftware/flogo-lib/core/action"
