@@ -196,7 +196,7 @@ func NewTLSConfig(thingName string) *tls.Config {
 		certpool.AppendCertsFromPEM(pemCerts)
 	}
 
-	thingDir := "things/" + thingName + "/"
+	//thingDir := "things/" + thingName + "/"
 
 	// Import client certificate/key pair for the specified 'thing'
 	cert, err := tls.LoadX509KeyPair("device.pem.crt", "device.pem.key")
