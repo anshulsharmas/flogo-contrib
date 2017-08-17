@@ -81,7 +81,7 @@ func (t *MqttTrigger) Start() error {
 	})
 	
 	//set tls config
-	tlsConfig := NewTLSConfig(thingName)
+	tlsConfig := NewTLSConfig("")
 	opts.SetTLSConfig(tlsConfig)
 
 	client := mqtt.NewClient(opts)
