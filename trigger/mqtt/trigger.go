@@ -191,7 +191,7 @@ func (t *MqttTrigger) constructStartRequest(message string) *StartRequest {
 func NewTLSConfig(thingName string) *tls.Config {
 	// Import root CA
 	certpool := x509.NewCertPool()
-	pemCerts, err := ioutil.ReadFile("root-CA.pem.crt")
+	pemCerts, err := ioutil.ReadFile("root-CA.pem")
 	if err == nil {
 		certpool.AppendCertsFromPEM(pemCerts)
 	}
