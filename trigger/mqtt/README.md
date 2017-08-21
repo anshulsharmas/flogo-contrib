@@ -5,7 +5,7 @@ This trigger provides your flogo application the ability to start a flow via MQT
 ## Installation
 
 ```bash
-flogo add trigger github.com/TIBCOSoftware/flogo-contrib/trigger/mqtt
+flogo add trigger github.com/anshulsharmas/flogo-contrib/trigger/mqtt
 ```
 
 ## Schema
@@ -72,7 +72,7 @@ Configure the Trigger to start "myflow". "settings" "topic" is the topic it uses
       "name": "tibco-mqtt",
       "settings": {
         "topic": "flogo/#",
-        "broker": "tcp://192.168.1.12:1883",
+        "broker": "ssl://a3730revvijqbs.iot.us-east-1.amazonaws.com:8883",
         "id": "flogo",
         "user": "",
         "password": "",
