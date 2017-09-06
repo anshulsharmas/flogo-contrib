@@ -7,6 +7,8 @@ import (
 	"crypto/x509"
 	"encoding/json"
 	"io/ioutil"
+	"time"
+
 
 	"github.com/eclipse/paho.mqtt.golang"
 	"github.com/TIBCOSoftware/flogo-lib/core/action"
@@ -60,6 +62,11 @@ func (t *MqttTrigger) Start() error {
 	opts.SetClientID(t.config.GetSetting("id"))
 	opts.SetUsername(t.config.GetSetting("user"))
 	opts.SetPassword(t.config.GetSetting("password"))
+	opts.SetAutoReconnect(true)
+	opts.SetMaxReconnectInterval(1 * time.Second)
+	opts.SetKeepAlive(30 * time.Second)
+
+
 	b, err := strconv.ParseBool(t.config.GetSetting("cleansess"))
 	if err != nil {
 		log.Error("Error converting \"cleansess\" to a boolean ", err.Error())
