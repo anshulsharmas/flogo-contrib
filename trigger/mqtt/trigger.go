@@ -2,19 +2,23 @@ package mqtt
 
 import (
 	"context"
-	"strconv"
+
 	"crypto/tls"
 	"crypto/x509"
 	"encoding/json"
 	"io/ioutil"
-	"time"
+	"strconv"
 
 
-	"github.com/eclipse/paho.mqtt.golang"
+	"github.com/TIBCOSoftware/flogo-contrib/action/flow/support"
+
+
 	"github.com/TIBCOSoftware/flogo-lib/core/action"
 	"github.com/TIBCOSoftware/flogo-lib/core/trigger"
-	"github.com/TIBCOSoftware/flogo-contrib/action/flow/support"
+
 	"github.com/TIBCOSoftware/flogo-lib/logger"
+	"github.com/eclipse/paho.mqtt.golang"
+	"time"
 )
 
 // log is the default package logger
@@ -62,9 +66,9 @@ func (t *MqttTrigger) Start() error {
 	opts.SetClientID(t.config.GetSetting("id"))
 	opts.SetUsername(t.config.GetSetting("user"))
 	opts.SetPassword(t.config.GetSetting("password"))
-	opts.SetAutoReconnect(true)
-	opts.SetMaxReconnectInterval(1 * time.Second)
-	opts.SetKeepAlive(30 * time.Second)
+
+
+
 
 
 	b, err := strconv.ParseBool(t.config.GetSetting("cleansess"))
@@ -89,7 +93,8 @@ func (t *MqttTrigger) Start() error {
 			log.Errorf("Topic %s not found", t.topicToActionURI[topic])
 		}
 	})
-	
+
+
 	//set tls config
 	tlsConfig := NewTLSConfig("")
 	opts.SetTLSConfig(tlsConfig)
@@ -181,8 +186,18 @@ func (t *MqttTrigger) publishMessage(topic string, message string) {
 		log.Error("Error converting \"qos\" to an integer ", err.Error())
 		return
 	}
+	if len(topic) == 0 {
+		log.Warn("Invalid empty topic to publish to")
+		return
+	}
 	token := t.client.Publish(topic, byte(qos), false, message)
-	token.Wait()
+
+	sent := token.WaitTimeout(5000 * time.Millisecond)
+	if !sent {
+		// Timeout occurred
+		log.Errorf("Timeout occurred while trying to publish to topic '%s'", topic)
+		return
+	}
 }
 
 func (t *MqttTrigger) constructStartRequest(message string) *StartRequest {
