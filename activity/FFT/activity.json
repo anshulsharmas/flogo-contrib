@@ -1,0 +1,27 @@
+{
+  "name": "FFT",
+  "version": "0.0.1",
+  "type": "flogo:activity",
+  "description": "Run FFT on binary file",
+  "author": "Anshul Sharma <ansharma@tibco.com>",
+  "inputs":[
+    {
+      "name": "inputFilePath",
+      "type": "string"
+    },
+     {
+      "name": "sampleSize",
+      "type": "integer"
+    },
+     {
+      "name": "outputFilePath",
+      "type": "string"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "status",
+      "type": "string"
+    }
+  ]
+}
