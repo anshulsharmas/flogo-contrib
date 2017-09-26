@@ -1,9 +1,11 @@
 {
   "name": "FFT",
-  "version": "0.0.1",
   "type": "flogo:activity",
-  "description": "Run FFT on binary file",
-  "author": "Anshul Sharma <ansharma@tibco.com>",
+  "ref": "github.com/anshulsharmas/flogo-contrib/activity/FFT",
+  "version": "0.0.1",
+  "title": "FFT",
+  "description": "Run FFT",
+  "homepage": "https://github.com/anshulsharmas/flogo-contrib/edit/master/activity/FFT/",
   "inputs":[
     {
       "name": "inputFilePath",
