@@ -1,0 +1,31 @@
+{
+  "name": "poller",
+  "type": "flogo:trigger",
+  "ref": "github.com/anshulsharmas/flogo-contrib/trigger/filepoller",
+  "version": "0.0.1",
+  "title": "Directory Poller",
+  "author": "Akash Mahapatra",
+  "description": "Poller",
+  "homepage": "https://github.com/anshulsharmas/flogo-contrib/trigger/filepoller",
+"settings":[
+    {
+      "name": "dirName",
+      "type": "string",
+      "value": "default"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "filename",
+      "type": "string"
+    }
+  ],
+  "handler": {
+    "settings": [
+      {
+        "name": "dirName",
+        "type": "string"
+      }
+    ]
+  }
+}
