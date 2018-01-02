@@ -1,0 +1,57 @@
+{
+	"name": "statistica_activity",
+	"type": "flogo:activity",
+	"ref": "github.com/TIBCOSoftware/package/name",
+	"version": "0.0.1",
+	"title": "Name of model",
+	"description": "My_Model Activity generated from Statistica",
+	"homepage": "http://....",
+	"inputs":[
+		{
+			"name": "_ozone__",
+			"type": "number",
+			"required": true
+		},
+		{
+			"name": "_humidity__",
+			"type": "number",
+			"required": true
+		},
+		{
+			"name": "_dewPoint__",
+			"type": "number",
+			"required": true
+		},
+		{
+			"name": "_pressure__",
+			"type": "number",
+			"required": true
+		},
+		{
+			"name": "_windSpeed__",
+			"type": "number",
+			"required": true
+		},
+		{
+			"name": "_value__",
+			"type": "number",
+			"required": true
+		},
+		{
+			"name": "_Index__",
+			"type": "number",
+			"required": true
+		},
+		{
+			"name": "_pollutant__",
+			"type": "string",
+			"required": true
+		}
+	],
+	"outputs": [
+		{
+			"name": "result",
+			"type": "any"
+		}
+	]
+}
