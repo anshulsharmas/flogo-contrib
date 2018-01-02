@@ -1,5 +1,5 @@
 {
-	"name": "asthma_monitor",
+	"name": "statistica_activity",
 	"type": "flogo:activity",
 	"ref": "github.com/anshulsharmas/flogo-contrib/activity/asthma_monitor",
 	"version": "0.0.1",
