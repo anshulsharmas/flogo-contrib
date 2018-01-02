@@ -1,11 +1,11 @@
 {
-	"name": "statistica_activity",
+	"name": "asthma_monitor",
 	"type": "flogo:activity",
-	"ref": "github.com/TIBCOSoftware/package/name",
+	"ref": "github.com/anshulsharmas/flogo-contrib/activity/asthma_monitor",
 	"version": "0.0.1",
-	"title": "Name of model",
-	"description": "My_Model Activity generated from Statistica",
-	"homepage": "http://....",
+	"title": "Asthma Monitor",
+	"description": "ML generated from Statistica",
+	"homepage": "https://github.com/anshulsharmas/flogo-contrib/edit/master/activity/asthma_monitor",
 	"inputs":[
 		{
 			"name": "_ozone__",
