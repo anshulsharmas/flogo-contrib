@@ -2,6 +2,7 @@
   "name": "stub_inference",
   "version": "0.0.1",
   "type": "flogo:activity",
+  "ref": "github.com/anshulsharmas/flogo-contrib/activity/stub_inference",
   "description": "activity description",
   "author": "Your Name <you.name@example.org>",
   "inputs":[
