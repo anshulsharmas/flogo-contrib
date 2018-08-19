@@ -1,8 +1,7 @@
 package inference
 
 import (
-	"fmt"
-	"strings"
+
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
